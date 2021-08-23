@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.UserDao">
+    <select id="queryAll" resultType="User" >
+        select * from user limit #{start},#{end}
+    </select>
+
+    <update id="upstatus" >
+        update user set status=#{status} where id = #{id}
+    </update>
+    <select id="count" resultType="Integer">
+        select count(*) from user
+    </select>
+    <insert id="add" parameterType="User">
+        insert into user values (#{id},#{username},#{headimg},#{brief},#{wechat},#{create_date},#{status},#{phone},null)
+    </insert>
+    <delete id="del" parameterType="String">
+        delete from user where id = #{id}
+    </delete>
+
+    <update id="uphead">
+        update user set headimg = #{photo} where id = #{id}
+    </update>
+
+    <update id="upuser">
+        update user set username = #{username},brief = #{brief} where id = #{id}
+    </update>
+
+</mapper>

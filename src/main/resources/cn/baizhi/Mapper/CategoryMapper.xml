@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.CategoryDao">
+    <sql id="all">
+        select id,cate_name catename,levels,parent_id parentid from category
+    </sql>
+
+    <!--//通过上级id查所有（查二级分类）
+    List<Category> querTwo(String parentid);
+    //添加一个二级分类
+    void addTwo(Category category);
+    //删除一个二级分类
+    void delTwo();
+    //删除一个一级分类
+    void delOne();
+    //添加一个一级分类
+    void addOne(Category category);-->
+
+    <select id="queryOne" resultType="Category" parameterType="Integer">
+        <include refid="all"/> where levels = #{clz}
+    </select>
+    <select id="querTwo" resultType="Category" parameterType="String">
+        <include refid="all"/> where parent_id = #{parentid}
+    </select>
+    <delete id="delTwo" parameterType="String">
+        delete from category where id = #{id}
+    </delete>
+
+    <insert id="addTwo" parameterType="Category">
+        insert into category values(#{id},#{catename},#{levels},#{parentid})
+    </insert>
+    <insert id="addOne" parameterType="Category">
+        insert into category values(#{id},#{catename},#{levels},null)
+    </insert>
+
+    <select id="queryByname" parameterType="Category" resultType="Category">
+        <include refid="all"/>
+    <where><if test="catename!=null">
+        cate_name = #{catename}
+    </if>
+    <if test="parentid!=null">
+        AND parent_id = #{parentid}
+    </if>
+    </where>
+    </select>
+
+
+    <select id="queryall" resultType="Category" parameterType="String">
+        <include refid="all"/> where parent_id = #{id}
+    </select>
+
+    <delete id="delOne" parameterType="String">
+        delete from category where id = #{id}
+    </delete>
+
+    <update id="updata">
+        update category set cate_name = #{name} where id = #{id}
+    </update>
+
+    <select id="quen" resultType="Category" parameterType="String">
+        <include refid="all"/> where id = (SELECT parent_id FROM `category` where id = #{id})
+    </select>
+
+
+</mapper>

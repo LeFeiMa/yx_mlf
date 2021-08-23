@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.VideoDao">
+
+    <resultMap id="all" type="Video">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="brief" property="brief"/>
+        <result column="cover_path" property="coverpath"/>
+        <result column="video_path" property="videopath"/>
+        <result column="create_date" property="createdata"/>
+        <association property="category" javaType="com.baizhi.entity.Category">
+            <result column="cid" property="id"/>
+            <result column="cname" property="catename"/>
+            <result column="cleves" property="levels"/>
+            <result column="cparentid" property="parentid"/>
+        </association>
+        <association property="user" javaType="com.baizhi.entity.User">
+            <result column="uid" property="id"/>
+            <result column="uname" property="username"/>
+            <result column="uimg" property="headimg"/>
+            <result column="brief" property="brief"/>
+         </association>
+
+    </resultMap>
+
+
+    <select id="queryAll" resultMap="all" >
+        SELECT ji.id,ji.title,ji.brief,ji.cover_path,ji.video_path,ji.create_date,
+               ca.id cid,ca.cate_name cname,ca.levels cleves,ca.parent_id cparentid,
+               us.id uid,us.username uname,us.headimg uimg,us.brief ubri  from
+            (select *
+             from video limit #{str},#{size} )  ji
+
+                LEFT JOIN category ca
+                          on
+                              ji.category_id = ca.id
+                LEFT JOIN user us
+                          on us.id = ji.user_id
+</select>
+
+            <!--总条数-->
+    <select id="count" resultType="Integer">
+        select count(*) from video
+    </select>
+
+
+    <delete id="del" parameterType="String">
+        delete from video where id = #{id}
+    </delete>
+
+    <insert id="add" parameterType="Video">
+        insert into video value(#{id},#{title},#{brief},#{coverpath},#{videopath},#{createdata},#{category.id},#{user.id},null)
+    </insert>
+
+    <update id="upda" parameterType="Video">
+        update video set title = #{title},brief = #{brief},cover_path = #{coverpath},video_path = #{videopath},category_id = #{category.id} where id = #{id}
+    </update>
+
+</mapper>
