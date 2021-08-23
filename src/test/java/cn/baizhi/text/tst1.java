@@ -117,6 +117,11 @@ public class tst1 {
     }
 
     @Test
+    public void vb(){
+
+    }
+
+    @Test
     public void er()  {
         List<MonthAndCount> videos = us.mon("男");
         int [] mana = new int[12];
