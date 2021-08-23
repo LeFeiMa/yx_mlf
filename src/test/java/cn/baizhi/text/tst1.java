@@ -131,7 +131,7 @@ public class tst1 {
                     mana[i] = videos.get(s).getCount();
                 }
             }
-            System.out.print(mana[i]+"     ");
+            System.out.print(mana[i]+"        ");
 
         }
 
