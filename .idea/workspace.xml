@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e072e739-bb1a-4927-abf5-28bb4e87c6d9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/baizhi/annotation/Delete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baizhi/annotation/Delete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/baizhi/annotation/a.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/baizhi/annotation/b.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/baizhi/aspect/CacheAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/baizhi/aspect/CacheAspect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1629086012071</updated>
       <workItem from="1629086014448" duration="9000" />
-      <workItem from="1629779036330" duration="2920000" />
+      <workItem from="1629779036330" duration="3481000" />
     </task>
     <task id="LOCAL-00001" summary="这是2021版本第一次上传v1.0">
       <created>1629779180499</created>
@@ -72,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629786486086</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="这是2021版本第三次上传v3.0">
+      <created>1629788185569</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1629788185569</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -81,6 +96,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="这是2021版本第一次上传v1.0" />
     <MESSAGE value="这是2021版本第二次上传v2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="这是2021版本第二次上传v2.0" />
+    <MESSAGE value="这是2021版本第三次上传v3.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="这是2021版本第三次上传v3.0" />
   </component>
 </project>
